@@ -8,7 +8,7 @@ source.include_exts = py,png,jpg,kv,atlas,json
 
 version = 1.0
 
-requirements = python3==3.11.6,kivy==2.3.0,requests,urllib3,certifi,charset-normalizer,idna,android
+requirements = python3,kivy==2.3.0,requests,urllib3,certifi,charset-normalizer,idna,android
 
 orientation = portrait
 fullscreen = 0
