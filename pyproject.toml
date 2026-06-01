@@ -1,0 +1,32 @@
+[tool.briefcase]
+project_name = "Load Tester"
+bundle = "org.loadtester"
+version = "1.0.0"
+url = "https://loadtester.org"
+license = "MIT"
+author = "LoadTester"
+author_email = "info@loadtester.org"
+
+[tool.briefcase.app.loadtester]
+formal_name = "Load Tester"
+description = "Mobile load testing application"
+sources = ["loadtester"]
+requires = [
+    "kivy>=2.3.0",
+    "kivymd>=1.2.0",
+    "requests>=2.31.0",
+    "urllib3>=2.0.0",
+]
+
+[tool.briefcase.app.loadtester.android]
+build_gradle_dependencies = [
+    "androidx.appcompat:appcompat:1.6.1",
+    "androidx.constraintlayout:constraintlayout:2.1.4",
+]
+permission_INTERNET = "Application needs internet access"
+permission_WAKE_LOCK = "Keep device awake during tests"
+permission_FOREGROUND_SERVICE = "Run tests in background"
+permission_ACCESS_NETWORK_STATE = "Check network connectivity"
+
+[build-system]
+requires = ["briefcase"]
