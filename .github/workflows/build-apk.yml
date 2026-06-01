@@ -25,10 +25,11 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y \
           git zip unzip openjdk-17-jdk \
-          python3-pip autoconf libtool pkg-config \
+          python3-pip autoconf automake libtool pkg-config \
           zlib1g-dev libncurses5-dev libncursesw5-dev \
           cmake libffi-dev libssl-dev \
-          automake ccache
+          ccache gettext texinfo help2man gperf \
+          libltdl-dev m4
     
     - name: Install buildozer
       run: |
@@ -37,7 +38,10 @@ jobs:
     
     - name: Build APK with buildozer
       run: |
-        yes | buildozer android debug || buildozer android debug
+        # Clean previous builds
+        rm -rf .buildozer
+        # Build with verbose output
+        buildozer -v android debug
     
     - name: Upload APK
       uses: actions/upload-artifact@v4
